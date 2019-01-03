@@ -27,3 +27,13 @@
 - You simply change the state of our components and React will automatically update the DOM to match that state.
 
 ## 02. Setting Up the Development Environment
+### Install
+- nodeJS for npm
+- create react app
+    ```
+    ~$sudo npm i -g create-react-app@1.5.2
+    ```
+- Visual studio code
+    - Extensions:
+        - Simple React Snippets
+        - Prettier
