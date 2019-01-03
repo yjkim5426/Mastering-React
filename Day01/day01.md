@@ -1,5 +1,5 @@
 # Day 01
-## What is React
+## 01. What is React
 - React is a JavaScript library for building fast and interactive user interfaces. It was developed at Facebook in 2011.
 ### Component
 - At the heart of all React operations are components, a component is essentially a piece of user interface.
@@ -25,3 +25,5 @@
 - React will then compare this element and it's children with the previous one, it figures out what has changed, and then it will update a part of the real DOM to keep it in sync with the virtual DOM.
 - So that means when building applications with React unlike vanilla JavaScript and query we no longer have to work with the DOM API in browsers. - In other words, we no longer have to write code in query or manipulate the DOM, or attach event handlers to DOM elements.
 - You simply change the state of our components and React will automatically update the DOM to match that state.
+
+## 02. Setting Up the Development Environment
