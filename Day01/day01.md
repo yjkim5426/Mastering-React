@@ -37,3 +37,30 @@
     - Extensions:
         - Simple React Snippets
         - Prettier
+
+## 03. Your First React App
+### create react app
+```
+$create-react-app react-app
+```
+- It is going to install React as well as all the third party libraries we need
+- It's going to install a light weight development server, web pack for bundling our files, Babel for comiling our JavaScript code, as well as a bunch of other tools.
+- when you create an application using create react app you don't have to do any configuration, all the configuration is done for you.
+- If you wnat to customize this configuration for your production environment, you can always eject by running npm run eject.
+    ```
+    npm run eject
+      ```
+- Launch a development server
+    ```
+    $cd react-app
+    $npm start
+    ```
+- Folder structure:
+    - node_module: is where we have all the third party libraries as well as react itself, we never have to touch this.
+    - public: where we have the public assets of our application. Such as a favorite icon, and index.html
+    - src: where we have a basic component.
+- JSX: which stands for JavaScript XML to describe what the UI is going to look like. this mark up represents the output of our app component.
+- To make JSX code work, we have to pass this code through Babel, which is a modern JavaScript compiler.
+- Babel will take this JSX syntax, and convert it to plain JavaScript code that broswers can understand.
+    - [babeljs.io.repl] babeljs.io.
+- index.js: is the entry point for our application
