@@ -115,3 +115,23 @@ $create-react-app react-app
     ```
     $npm run eject
     ```
+
+## 06. Full-stack Architecture
+### 
+- Front-end: The frontend is basically the ui, what the user sees and interacts with.
+- Back-end: The backend is where we store and process the data send notifications, pick up workflows, and so on.
+    - C# / ASP.net
+    - JavaScript / Node + Express +(MongoDB database)
+    - Firebase: You don't have to build the backend from scratch, you simply create a firebase account and connect the React app to it with a few lines of code.
+- These two parts communicates using the http protocol, the same protocol that powers our web.
+
+## 07. Course Structure
+###
+- JavaScript
+- Components: building blocks of React. How to pass data between components and have them interact with each other.
+- Tables: with pagination, sorting and searching. These are the common patterns that you see in a lot of real world applications.
+- Forms: forms with validation again another common feature in almost every single application out there.
+- Routing: How to have multiple pages in your application, and take the user from one page to another.
+- HTTP Services: how to talk to backend services in your React apps. Up to this section all the data we have is in memory but after this section, our data will be stored in a MongoDB database on the server.
+- Auth: authentication and authorization. Custom authentication in the React apps.
+- Deployment: build and deploy a real video rental application.
