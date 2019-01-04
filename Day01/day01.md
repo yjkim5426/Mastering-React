@@ -64,3 +64,22 @@ $create-react-app react-app
 - Babel will take this JSX syntax, and convert it to plain JavaScript code that broswers can understand.
     - [babeljs.io.repl] babeljs.io.
 - index.js: is the entry point for our application
+
+## 04. Hello World
+### 
+- delete all the files inside of the src folder, you're going to write everything from scratch.
+
+- import module
+    ```
+    import React from 'react';
+    ```
+    import {Object that we're importing} from {'module'}
+    // 'react' <- this is the module
+    // React <- this is the obejct that we're importing from that module.
+- Babel will compile JSX down to a call to React.create element, and this is the reason why we have to import react on the top even though we are not going to directly use this object in our code. But when our code is compiled, because there is a reference to React that's why we have to import it on the top.
+- render
+    ```
+    ReactDOM.render(element, document.getElementById('root'));
+    ```
+    - as a first argument we pass the element we want to render
+    - as a second argument, we need to specify where in the real DOM we want to render this.

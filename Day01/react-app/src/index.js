@@ -1,12 +1,13 @@
+// import a couple of objects from react modules
+
+// 'react' <- this is the module
+// React <- this is the obejct that we're importing from that module.
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//define element
+const element = <h1>Hello World</h1>;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// as a first argument we pass the element we want to render
+// as a second argument, we need to specify where in the real DOM we want to render this.
+ReactDOM.render(element, document.getElementById('root'));
