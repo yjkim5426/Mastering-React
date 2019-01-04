@@ -83,3 +83,35 @@ $create-react-app react-app
     ```
     - as a first argument we pass the element we want to render
     - as a second argument, we need to specify where in the real DOM we want to render this.
+
+## 05. Custom Configs
+### Customize the default configuration for create-react-app
+- package.json
+    ```
+      "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+      },
+    ```
+- we have 4 scripts or commands
+    - build: build which we use for building this application for production, so we'll get an optimized package.
+    - test: for running until in this project
+    - eject: eject from create react app, and customize all the tools and configurations that come with this project.
+```
+"dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-scripts": "2.1.2"
+  },
+```
+- We have only three dependencies. You have the dependency to 
+    - 'react' which is the main react library
+    - 'react-dom': library for working with the DOM
+    - 'react-scripts': library that takes care of testing, building, testing and ejecting a create react app project.
+- Under dependencies, you don't see any references to tools like web pack, Babel, and so on. And this is the beauty of using a react react app project, all that complexity is hidden.
+- eject from create react app: you will see all those dependencies appear under the dependency section.
+    ```
+    $npm run eject
+    ```
