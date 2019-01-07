@@ -205,4 +205,84 @@
 - Update the real DOM
 
 ## 14. Passing Event Arguments
+### pass arguments with events
+    ```
+    <button 
+        onClick={ () => this.handleIncrement() }
+        className="btn btn-secondary btn-sm">
+        Increment
+    </button>
+    ```
+- Use an inline function: in onClick instead of referencing this.doHandleIncrement, we can simply pass this arrow function, in between curly braces.
+- whenever you need to pass an argument, your event handlers simply pass an arrow function here, in the body of that function called the event handler, and pass an argument.
+
+## 15. Setting Up the Vidly Project
 ###
+- create a new project 'vidly'
+- install bootstrap and font-awesome
+```
+$create-react-app vidly
+$cd vidly/
+$npm i bootstrap@4.1.1
+$npm i font-awesome@4.7.0
+```
+- import bootstrap and font-awesome in index.js
+```
+import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.css';
+```
+- When we build this application, web pack which is the tool that bundles our JavaScript and css files, will pull in these css files, and put them in our final bundle.
+```
+$npm start
+```
+- start the project
+- Use bootstrap framework 'starter template'
+```
+class App extends Component {
+  render() {
+    return (
+      <main className="container">
+        <h1>Hello World</h1>
+      </main>
+    );
+  }
+}
+```
+- modify app.js render method to use 'starter template'
+- copy attached two files in services folder: fakeGenreService.js and fakeMovieService.js
+
+## 16. Exercises
+### build movies component
+
+```
+handleDelete = movie => {
+    const movies = this.state.movies.filter(m => m._id !== movie._id);
+    this.setState({ movies: movies });
+  };
+```
+```
+renderMessage() {
+    const countMovies = this.state.movies.length;
+
+    return countMovies === 0 ? 'No movies' : <p>Showing {countMovies} movies in the database.</p>;
+}
+```
+```
+<tbody>
+    {this.state.movies.map(movie => (
+        <tr key={movie._id}>
+        <td>{movie.title}</td>
+        <td>{movie.genre.name}</td>
+        <td>{movie.numberInStock}</td>
+        <td>{movie.dailyRentalRate}</td>
+        <td>
+            <button 
+            className='btn btn-danger btn-sm' 
+            onClick={() => this.handleDelete(movie)}>
+            Delete
+            </button>
+        </td>
+        </tr>
+    ))}
+</tbody>
+```
