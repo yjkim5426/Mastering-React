@@ -76,3 +76,106 @@ state = {
 
 ## 07. Raising and Handling Events
 ###
+- The component that owns a piece of the state, should be the one modifying it.
+- Raising event
+    - We need to add a new method to our counters component, and pass a reference to that method via props to the counter component.
+```
+handleDeleteCounter = () => {
+    console.log('onDelete event handler called');
+  }
+
+  render() { 
+    return (
+      <div>
+        {this.state.counters.map(counter => (
+          <Counter 
+            key={counter.id} 
+            value={counter.value} 
+            id={counter.id} 
+            onDelete={this.handleDeleteCounter}/>
+        ))}
+      </div>
+    );
+  }
+```
+
+## 08. Updating the State
+###
+- with parameter use arrow function
+```
+<button 
+  className="btn btn-danger btn-sm m-2"
+  onClick={() => this.props.onDelete(this.props.id)}>
+  Delete
+</button>
+```
+- update the state: in React we do not update the state directly, in other words, we are not going to remove a counter from the array, instead, we're going to create a new array without a given counter, and then call the setState method of our component, and let react update the state.
+- create filtered new counters array
+```
+const counters = this.state.counters.filter(c => c.id !== counterId);
+```
+- override the counters property with the counters
+```
+this.setState({
+  counters
+})
+```
+- encapsulate related values
+```
+{this.state.counters.map(counter => (
+  <Counter 
+    key={counter.id} 
+    value={counter.value} 
+    id={counter.id} 
+    onDelete={this.handleDeleteCounter}/>
+))}
+```
+```
+<div>
+  {this.state.counters.map(counter => (
+    <Counter 
+      key={counter.id} 
+      counter={counter}
+      onDelete={this.handleDeleteCounter}/>
+  ))}
+</div>
+```
+
+## 09. Single Source of Truth
+###
+- Add a reset button
+```
+{this.state.counters.map((counter) => {
+  return <Counter 
+    key={counter.id} 
+    counter={counter}
+    onDelete={this.handleDeleteCounter}/>
+})}
+
+{this.state.counters.map(counter => (
+  <Counter 
+    key={counter.id} 
+    counter={counter}
+    onDelete={this.handleDeleteCounter}/>
+))}
+```
+```
+handleResetCounters = () => {
+  const counters = this.state.counters.map(function (counter){
+    counter.value = 0;
+    return counter;
+  })
+  this.setState({ counters })
+}
+```
+
+## 10. Removing the local state
+###
+- single source of truth: We need to remove the local state in our couunter component and have a single source of truth.
+- A control kind of component. Controlled component, doesn't have it's own local state, it receives all the data via props and raises events whenever data needs to be changed. So this component is entirely controlled by it's parent.
+- Delete local state
+- next, we need to find any references to this.state and update them accordingly. The first reference is in our handle increment method. Delete increment method.
+- change onclick event on button to raised event
+```
+onClick={() => this.props.onIncrement(this.props.counter)}
+```
