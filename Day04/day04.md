@@ -344,3 +344,32 @@ componentDidUpdate(prevProps, prevState) {
 - this method called just before a component is removed from the DOM
 - React will compare this virtual DOM with the old one, it figures out that one of our conuters is removed, so then it will call componentWillUnmount before removing this counter from the DOM.
 - And this gives us an opportunity to do any kind of cleanup. So if you have set up timers, or listeners, we can clean those up before this component is removed from the DOM, otherwise we'll end up with memory leaks.
+
+## 19. Exercise - Decrement Button
+### 
+- Add decrement button
+- When value is zero the button is disabled
+- Change the label Increment to plus sign
+- Change the label Delete to X sign
+
+## 20. Solution - Decrement button
+###
+```
+disabled={this.props.counter.balue === 0 ? "disabled" : ""}
+```
+
+## 21. Exercise - Like Component
+### Build reusable like component on Vidly application
+- Add Like component in the list of movies
+- implement fullheart and emptyheart toggle button
+- Use font Awesome 4.7 heart
+- What is the interface of this component? (input/output)
+- This component itself knows absolutely nothing about movies. It's just a simple dump component that is responsible for rendering an empty or full heart.
+
+## 22. Solution - Like Component
+###
+- Add a new folder, call it common in component folder (src/components/common)
+- this is where we add all the reusable components that are not specific to the domain of the Vidly application. Such as light components, pagination, tables, forms...and so on.
+- input: liked: boolean, output: onClick
+- input: we should tell this component whether the given entity like a movie, is liked or not. So here we need an input property called liked, which is basically a boolean.
+- output: what are the events this component is going to raise? Whenever we click this heart icon we want our component to raise an onClick event. So, whoever is using this component will then be notified, and then they will take care of toggling the like propery of a given object, and saving the changes in the database.
