@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Like from "./common/like";
+import Pagination from "./"
 import { getMovies } from "../src/services/fakeMovieService";
 
 class Movies extends Component {
@@ -61,6 +62,7 @@ class Movies extends Component {
             ))}
           </tbody>
         </table>
+        <Pagination />
       </div>
     );
   }
